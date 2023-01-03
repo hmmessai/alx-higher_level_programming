@@ -2,4 +2,4 @@
 for i in range(97, 122):
     if (i == 101 or i == 113):
         continue
-    print(f"{i:c}", end="")
+    print("{i:c}".format(i = i), end="")
