@@ -8,7 +8,7 @@
  */
 int check_cycle(listint_t *list)
 {
-        listint_t *fast;
+	listint_t *fast;
 	listint_t *slow;
 
 	fast = list->next;
