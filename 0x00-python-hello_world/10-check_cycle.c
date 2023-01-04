@@ -8,13 +8,20 @@
  */
 int check_cycle(listint_t *list)
 {
-        listint_t *current;
-	listint_t **pointers;
-        size_t nodes;
-        size_t count = 0;
+        listint_t *fast;
+	listint_t *slow;
 
-        current = list;
+	fast = head->next;
+	slow = head;
 
-	pointers = malloc(sizeof(listint_t *) * );
+	while (fast != NULL && fast->next != NULL && slow != NULL)
+	{
+		if (fast == slow)
+			return (1);
 
+		fast = fast->next->next;
+		slow = slow->next;
+	}
+
+	return (0);
 }
