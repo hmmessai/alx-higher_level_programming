@@ -1,5 +1,5 @@
 ## 0x01-python-if_else_loops_functions
-#####This directory contains my answers to the questions indicated in the 0x01-python-if_else_loops_functions project. The files are listed below:
+##### This directory contains my answers to the questions indicated in the 0x01-python-if_else_loops_functions project. The files are listed below:
 
 1. [0-positive_or_negative.py](./0-positive_or_negative.py ""): will assign a random signed numver to the variable number
 2. [1-last_digit.py](./1-last_digit.py):
