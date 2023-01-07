@@ -8,7 +8,7 @@ if __name__ == "__main__":
         exit(1)
     operators = ["+", "-", "*", "/"]
     if args[2] not in operators:
-        print("Unkown operator. Available operators: +, -, * and /")
+        print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     a = int(args[1])
     b = int(args[3])
