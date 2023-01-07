@@ -2,3 +2,4 @@ hidden_4.pyc
 *.swp
 *~
 calculator_1.py
+__pycache__
