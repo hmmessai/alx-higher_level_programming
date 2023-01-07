@@ -14,7 +14,7 @@ if __name__ == "__main__":
     b = int(args[3])
     operator = args[2]
     if operator == "+":
-        print("{} {} {} = {}".format(a, operator , b, add(a, b)))
+        print("{} {} {} = {}".format(a, operator, b, add(a, b)))
     elif operator == "-":
         print("{} {} {} = {}".format(a, operator, b, sub(a, b)))
     elif operator == "*":
