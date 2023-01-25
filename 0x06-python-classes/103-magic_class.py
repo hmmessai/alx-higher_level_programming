@@ -6,10 +6,10 @@ from math import pi
 class MagicClass:
     """Representation of MagicClass"""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """Initialize the MagicClass object
 
-        Args:
+        Arg:
             radius(int / float): the radius of the MagicClass object
         """
         if (not isinstance(radius, float) or not isinstance(radius, int)):
