@@ -11,6 +11,7 @@ class MagicClass:
     """
 
     def __init__(self, radius):
+        """Initialize the MagicClass object"""
         if (not isinstance(radius, float) or not isinstance(radius, int)):
             raise TypeError("radius must be a number")
         self.__radius = radius
