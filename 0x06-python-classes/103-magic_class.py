@@ -4,14 +4,14 @@ from math import pi
 
 
 class MagicClass:
-    """Representation of MagicClass
-
-    Args:
-        radius (int/ float): the radius of the MagicClass
-    """
+    """Representation of MagicClass"""
 
     def __init__(self, radius):
-        """Initialize the MagicClass object"""
+        """Initialize the MagicClass object
+
+        Args:
+            radius(int / float): the radius of the MagicClass object
+        """
         if (not isinstance(radius, float) or not isinstance(radius, int)):
             raise TypeError("radius must be a number")
         self.__radius = radius
