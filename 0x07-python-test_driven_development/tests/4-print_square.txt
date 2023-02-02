@@ -12,4 +12,19 @@ TypeError: size must be an integer
 
 >>> printsqr(10, 4)
 Traceback (most recent call last):
-SyntaxError: print_square only takes one argument
+TypeError: print_square() takes 1 positional argument but 2 were given
+
+
+>>> printsqr(-3)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+
+>>> printsqr(-3.9)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+>>> printsqr(5.6)
+Traceback (most recent call last):
+TypeError: size must be an integer
