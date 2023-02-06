@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines the Square class."""
+Rectangle = __import__('8-rectangle').Rectangle
 
 
 class Square(Rectangle):
