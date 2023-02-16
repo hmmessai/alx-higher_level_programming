@@ -2,7 +2,7 @@
 """Define a Base class."""
 import json
 import csv
-Rectangle = __import__('rectangle').Rectangle
+import turtle
 
 
 class Base:
@@ -64,18 +64,15 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-       """Creates an instance with all attributes already set.
-
-       Args:
-            dictionary: double pointer to a dictionary.
+       """Creates an instance with all attributes.
+       if dictionary and dictionary != {}:
+           if cls.__name__ == "Rectangle":
+               new = cls(1,1)
+           else:
+               new = cls(1)
+               new.update(**dictionary)
+           return new
         """
-        if dictionary and dictionary != {}:
-            if cls.__name__ == "Rectangle":
-                new = cls(1,1)
-            else:
-                new = cls(1)
-            new.update(**dictionary)
-            return new
 
     @classmethod
     def load_from_file(cls):
@@ -93,3 +90,39 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws the Rectangles and Squares."""
+        t = turtle.Turtle()
+        t.screen.bgcolor("#b7312c")
+        t.pensize(3)
+        t.shape("turtle")
+
+        t.color("#ffffff")
+        for rect in list_rectangles:
+            t.showturtle()
+            t.up()
+            t.goto(rect.x, rect.y)
+            t.down()
+            for i in range(2):
+                t.forward(rect.width)
+                t.left(90)
+                t.forward(rect.height)
+                t.left(90)
+            t.hideturtle()
+
+        t.color("#b5e3d8")
+        for sq in list_squares:
+            t.showturtle()
+            t.up()
+            t.goto(sq.x, sq.y)
+            t.down()
+            for i in range(2):
+                t.forward(sq.width)
+                t.left(90)
+                t.forward(sq.height)
+                t.left(90)
+            t.hideturtle()
+
+        turtle.exitonclick()
