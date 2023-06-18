@@ -13,5 +13,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
     name = sys.argv[4]
-    instance = session.query(State).filter(State.name.like(name))
-    print(instance.id)
+    instance = session.query(State).filter(State.name == name)
+    try:
+        print(instance[0].id)
+    except IndexError:
+        print('Not found')
