@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Lists all State objects from the db"""
+import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,4 +13,4 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
     for instance in session.query(State).order_by(State.id):
-        print(instance.id, instance.name, sep=": ")
+        print(instance.id, ": ", instance.name)
