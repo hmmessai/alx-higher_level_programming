@@ -1,24 +1,26 @@
 #!/usr/bin/node
+
 const request = require('request');
+const url = process.argv[2];
 
-const apiUrl = process.argv[2];
-
-request(apiUrl, function (error, response, body) {
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  const todos = JSON.parse(body);
-  const completedTodosByUser = todos.reduce((accumulator, todo) => {
-    if (todo.completed) {
-      accumulator[todo.userId] = (accumulator[todo.userId] || 0) + 1;
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const completed = {};
+    const tasks = JSON.parse(body);
+    for (const i in tasks) {
+      const task = tasks[i];
+      if (task.completed === true) {
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
+        } else {
+          completed[task.userId]++;
+        }
+      }
     }
-    return accumulator;
-  }, {});
-
-  Object.entries(completedTodosByUser).forEach(([userId, count]) => {
-    console.log(`${userId}: ${count}`);
-  });
+    console.log(completed);
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
+  }
 });
-
